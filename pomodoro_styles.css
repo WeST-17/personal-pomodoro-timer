@@ -1,22 +1,26 @@
 @font-face {
     font-family: 'Press Start 2P';
-    src: url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap) format('standard');
+    src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&family=Press+Start+2P&display=swap) format('standard');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&family=Press+Start+2P&display=swap) format('standard');
 }
 
 html {
     scroll-behavior: smooth;
-    font-family: 'Press Start 2P', sans-serif;
     font-size: 18px;
     letter-spacing: 3px;
     min-height: 100vh;
     color: #d8e9ef;
-    background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
+    background-image: linear-gradient(-20deg, #F6AE2D 0%, #33658A 100%);
     background-size: cover;
 }
 
 .container-fluid {
     color: #d8e9ef;
-    background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
+    background-image: linear-gradient(-20deg, #F6AE2D 0%, #33658A 100%);
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -25,7 +29,7 @@ html {
     padding: 20px;
 }
 
-* {
+body {
     font-family: 'Press Start 2P', sans-serif;
 }
 
@@ -84,23 +88,23 @@ p {
 }
   
 .circle {
-    border-color: #bf5239;
+    border-color: #EFD28D;
 }
   
 .circle-mask {
-    border-color: #e85a71;
+    border-color: #F2DBA6;
 }
 
 .app-counter-box {
-    font-size: 250%;
+    font-size: 220%;
     position: relative;
-    top: 125px;
+    top: 150px;
     color: #d8e9ef;
 }
   
-#start-btn {
+.start-btn {
     position: relative;
-    top: 150px;
+    top: 180px;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: none;
@@ -109,7 +113,7 @@ p {
     color: #d8e9ef;
 }
   
-#start-btn:hover {
+.start-btn:hover {
     color: #90c0d1;
 }
   
