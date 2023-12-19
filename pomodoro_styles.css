@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap) format('standard');
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    min-height: 100vh;
+    color: #d8e9ef;
+    background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
+    background-size: cover;
+}
+
+.container-fluid {
+    color: #d8e9ef;
+    background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+* {
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+h1 {
+    margin: 0 auto 20px auto;
+    color: #d8e9ef;
+}
+  
+p {
+    margin: 0;
+}
+  
+.app-message {
+    height: 20px;
+    margin: 10px auto 20px auto;
+}
+  
+.app-circle {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+}
+  
+.circle-shape {
+    pointer-events: none;
+}
+
+.semi-circle {
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    box-sizing: border-box;
+    border: solid 6px;
+}
+  
+.left-side {
+    top: 0;
+    left: 0;
+    transform-origin: right center;
+    transform: rotate(0deg);
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    border-right: none;
+    z-index: 1;
+}
+  
+.right-side {
+    top: 0;
+    left: 200px;
+    transform-origin: left center;
+    transform: rotate(0 deg);
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    border-left: none;
+}
+  
+.circle {
+    border-color: #bf5239;
+}
+  
+.circle-mask {
+    border-color: #e85a71;
+}
+
+.app-counter-box {
+    font-size: 250%;
+    position: relative;
+    top: 125px;
+    color: #d8e9ef;
+}
+  
+#start-btn {
+    position: relative;
+    top: 150px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    background: none;
+    outline: none;
+    color: #d8e9ef;
+}
+  
+#start-btn:hover {
+    color: #90c0d1;
+}
+  
