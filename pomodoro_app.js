@@ -1,9 +1,10 @@
 const bells = new Audio('./sounds/mixkit-happy-bell.wav'); 
 const startBtn = document.querySelector('.start');
 
-let workTime = 210*10000;
-let restTime = 60*10000;
+const workTime = 210*10000;
+const restTime = 60*10000;
 let time = workTime;
+let rest = restTime;
 
 let workIntervals = 3;
 let currentMode = "Work";
@@ -108,6 +109,7 @@ function reset() {
     clearInterval(countdownInterval);
     currentMode = "Work";
     time = workTime;
+    rest = restTime;
     workIntervals = 3;
 
     document.querySelector('.start').classList.remove('d-none');
@@ -119,11 +121,10 @@ function reset() {
 }
 
 function applyChanges() {
-    workTime = document.getElementById("set-work-time").value * 60 * 1000;
-    restTime = document.getElementById("set-rest-time").value * 60 * 1000;
+    time = document.getElementById("set-work-time").value * 60 * 1000;
+    rest = document.getElementById("set-rest-time").value * 60 * 1000;
     workIntervals = document.getElementById("work-interval").value;
 
-    time = workTime;
     currentMode = "Work";
     clearInterval(countdownInterval);
     updateCountdown(time);
