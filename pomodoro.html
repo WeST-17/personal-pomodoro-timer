@@ -1,3 +1,8 @@
+<!--Built with tutorials from Dana Lee on Codedex and Craig Davison on Youtube:
+Dana Lee: https://www.codedex.io/projects/build-a-pomodoro-app-with-html-css-js
+
+Craig Davison: https://www.youtube.com/@CraigDavisonDev
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,7 @@
     <meta name="description" content="Personal Pomodoro Timer by Wes T.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
+    <!--Bootstrap CDN-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!--Press Start 2P Font-->
@@ -20,34 +26,151 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
 
     <!--CSS Style Sheet Custom-->
-    <link rel="stylesheet" type="text/css" href="pomodoro_styles.css">
+    <link rel="stylesheet" href="pomodoro_styles.css">
 
     <title>Personal Pomodoro App</title>
 
 </head>
 <body>
-    <div class="container-fluid">
+    <!-- Navigation panel -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Navigation bar toggler -->
+            <!-- Navigation bar toggler -->
+            <button class="navbar-toggler position-absolute top-0 end-0 m-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </div>
+
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <!-- Navigation items -->
+            <div class="offcanvas-body">
+                <section class="row p-3">
+                    <div class="nav-text">Find me here: </div>
+                </section>
+                <!--Github Repo-->
+                <section class="row p-3">
+                    <section class="col-3 mx-auto d-flex">
+                        <a href="https://github.com/WeST-17/personal-pomodoro-timer" target="_blank">
+                            <i class="contact-logo fa-brands fa-square-github fa-3x"></i>
+                        </a>
+                    </section>
+                    <section class="col-9 text-start d-flex align-items-center">
+                        <a class="links" href="https://github.com/WeST-17/personal-pomodoro-timer" target="_blank">
+                            <- GitHub Repo
+                        </a>
+                    </section>
+                </section>
+
+                <section class="row p-3">
+                    <section class="col-3 mx-auto d-flex">
+                        <a href="https://westsaidev.pythonanywhere.com/" target="_blank">
+                            <img class="logos" src="/static/tab_logo_WT_Press_Start.png">
+                        </a>
+                    </section>
+                    <section class="col-9 text-start d-flex align-items-center">
+                        <a class="links" href="https://westsaidev.pythonanywhere.com/" target="_blank">
+                            <- Portfolio
+                        </a>
+                    </section>
+                </section>
+
+                <!--Resources:-->
+                <section class="row p-3">
+                    <div class="nav-text">Resources: </div>
+                </section>
+                <!--Craig Davison-->
+                <section class="row p-3">
+                    <section class="col-3 mx-auto d-flex">
+                        <a href="https://www.youtube.com/@CraigDavisonDev" target="_blank">
+                            <i class="contact-logo fa-brands fa-square-youtube fa-3x"></i>
+                        </a>
+                    </section>
+                    <section class="col-9 text-start d-flex align-items-center">
+                        <a class="links" href="https://www.youtube.com/@CraigDavisonDev" target="_blank">
+                            <- Craig Davison
+                        </a>
+                    </section>
+                </section>
+                <!--Dana Lee, Codedex Tutorial-->
+                <section class="row p-3">
+                    <section class="col-3 mx-auto d-flex">
+                        <a href="https://www.codedex.io/projects/build-a-pomodoro-app-with-html-css-js" target="_blank">
+                            <i class="contact-logo fa-solid fa-code fa-2x"></i>
+                        </a>
+                    </section>
+                    <section class="col-9 text-start d-flex align-items-center">
+                        <a class="links" href="https://www.codedex.io/projects/build-a-pomodoro-app-with-html-css-js" target="_blank">
+                            <- Dana Lee on Codédex
+                        </a>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
         <!--Pomodoro title-->
-        <div class="row">
+        <div class="row text-center">
             <h1>pomodoro</h1>
         </div>
         <!--Start timer message-->
-        <div class="row">
-            <div class="app-message">press start to begin</div>
-                <div class="app-circle">
-                    <div class="circle-shape">
-                    <div class="semi-circle right-side circle-mask"></div>
-                    <div class="semi-circle right-side circle"></div>
-                    <div class="semi-circle left-side circle-mask"></div>
-                    <div class="semi-circle left-side circle"></div>
+        <div class="row text-center mb-5">
+            <div class="app-message">press play to begin</div>
+        </div>
+        <div class="row text-end justify-content-center align-items-center" style="height: auto;">  
+            <div class="col-md-8 mx-auto app-counter-box mb-5 text-end">
+                <div class="timer" id="timer">00:00</div>
+                <div class="mode" id="mode"></div>
+            </div>
+            <div class="for-user col-md-4 ms-auto text-end">
+                <!--Interface to set pomodoro timer-->
+                <div class="user-input">
+                    <!--set work time-->
+                    <label for="set-work-time" class="text-end">Work Time (Minutes)</label>
+                    <input class="text-end" type="number" name="set-work-time" id="set-work-time" value="35" min="0">
                 </div>
-                <div class="app-counter-box">
-                    <p><span class="minutes">25</span>:<span class="seconds">00</span></p>
+                <div class="user-input">
+                    <!--set rest time-->
+                    <label for="set-rest-time" class="text-end">Rest Time (Minutes)</label>
+                    <input class="text-end" type="number" name="set-rest-time" id="set-rest-time" value="10" min="0">
                 </div>
-                <button type="button" class="btn start-btn">start</button>
+                <div class="user-input">
+                    <!--set work interval-->
+                    <label for="work-interval" class="text-end">Pomodoro Intervals </label>
+                    <input class="text-end" type="number" name="work-interval" id="work-interval" value="3" min="0">
+                </div>
+                <div class="user-input">
+                    <!--Apply button-->
+                    <button type="button" class="btn text-end" onclick="applyChanges()">Apply Changes</button>
+                </div>
+    
             </div>
         </div>
+        <div class="row text-center mx-auto" style="width: 50%;">
+            <div class="col">
+                <button type="button" class="start btn" onclick="play()">
+                    <i class="fa-solid fa-play fa-3x"></i>
+                </button>
+
+                <button type="button" class="pause btn d-none" onclick="pause()">
+                    <i class="fa-solid fa-pause fa-3x"></i>
+                </button>
+
+                <button type="button" class=" reset btn" onclick="reset()">
+                    <i class="fa-solid fa-arrow-rotate-left fa-3x"></i>
+                </button>
+            </div>
+        </div>
+        
     </div>
+    <!--Bootstrap CDN and FontAwesome-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cba7795fd6.js" crossorigin="anonymous"></script>
     <!--JS File for pomodoro timer-->
     <script src="pomodoro_app.js"></script>
 </body>
